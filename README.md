@@ -29,19 +29,28 @@ SmartPaper 是一个智能论文阅读和分析工具,支持多种 LLM 接口(Op
 
 ## 快速开始
 
-### 1. 安装依赖
+### 1. 克隆项目
+
+```bash
+# 克隆主仓库及其子模块
+git clone --recursive https://github.com/yourusername/SmartPaper.git
+cd SmartPaper
+```
+
+### 2. 安装依赖
 
 ```bash
 pip install -r requirements.txt
 ```
 
-#### 1.1 解决Python 3.10 以下markitdown兼容性问题（由于官方源码不兼容python3.10以下，此版本为官方源码修改后的兼容版本）
+#### 2.1 解决Python 3.10 以下markitdown兼容性问题（由于官方源码不兼容python3.10以下，此版本为官方源码修改后的兼容版本）
 ```bash
 # 卸载之前安装的markitdown
 pip uninstall markitdown
 git clone https://github.com/jingsongliujing/markitdown.git
 cd markitdown
 pip install -e packages/markitdown
+cd ..
 ```
 
 ### 2. 配置
@@ -70,25 +79,25 @@ cp config/config.yaml.example config/config.yaml
 1. 查看帮助:
 
 ```bash
-python main.py -h
+python backend.py -h
 ```
 
 2. 使用默认提示词模板分析论文:
 
 ```bash
-python main.py https://arxiv.org/pdf/2312.12456.pdf
+python backend.py https://arxiv.org/pdf/2312.12456.pdf
 ```
 
 3. 指定提示词模板:
 
 ```bash
-python main.py https://arxiv.org/pdf/2312.12456.pdf -p coolpapaers
+python backend.py https://arxiv.org/pdf/2312.12456.pdf -p coolpapaers
 ```
 
 4. 不提供URL时会使用默认论文URL:
 
 ```bash
-python main.py -p yuanbao
+python backend.py -p yuanbao
 ```
 
 #### 命令行工具详解
@@ -173,49 +182,6 @@ python main.py -p yuanbao
 [分析内容]
 ```
 
-## 前后端启动说明
-
-### 后端启动
-
-1. 进入SmartPaper目录:
-
-```bash
-cd SmartPaper
-```
-
-2. 安装依赖:
-
-```bash
-pip install -r requirements.txt
-```
-
-3. 启动后端服务:
-
-```bash
-run main.py
-```
-
-### 前端启动
-
-1. 进入frontend目录:
-
-```bash
-cd frontend
-```
-
-2. 安装依赖:
-
-```bash
-npm install
-```
-
-3. 启动开发服务器:
-
-```bash
-npm run dev
-```
-
-4. 前端服务将在本地启动，通常在 http://localhost:5173
 
 ## 注意事项
 
